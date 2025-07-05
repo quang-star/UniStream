@@ -58,8 +58,8 @@
                     </div>
                     <div class="clear-fix" style="width: 50px;"></div>
                     <div id="method">
-                        <button v-on:click="add()">+</button>
-                        <button v-on:click="multiple()">x</button>
+                        <button :disabled="n <= 0 || m <= 0" v-on:click="add()">+</button>
+                        <button :disabled="n <= 0 || m <= 0" v-on:click="multiple()">x</button>
                     </div>
                     <div class="clear-fix" style="width: 50px;"></div>
                     <div id="matrix3">
@@ -69,6 +69,7 @@
                         </span>
                        
                     </div>
+                    <p v-if="n <= 0 || m <= 0">n và m phải lớn hơn 0</p>
                 </div>
             </div>
         </div>
