@@ -1,16 +1,16 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-import DemoComponent from './components/DemoComponent.vue'
-import ChildComponent from './components/ChildComponent.vue'
-import FormComponent from './components/FormComponent.vue'
-import DetailComponent from './components/DetailComponent.vue'
-</script>
+
 
 <template>
-  <div id="main" style="display: flex;">
-    <FormComponent @detail="handleDetailEmployee"/>
-    <DetailComponent v-if="employeeNumberCurrent" :currentEmployee="employeeNumberCurrent"/>
+  <div id="detail">
+    <h3>Mã nhân viên: <span class="font-bold">{{ currentEmployee.employee_number }}</span></h3>
+    <h3>Họ và tên: <span class="font-bold">{{ currentEmployee.full_name }}</span></h3>
+    <input type="number" v-model="qty" placeholder="1">
+    <select name="" id="" v-model="type">
+        <option v-for="type in listType" :value="type">{{ type }}</option>
+       
+    </select>
+    <br>
+    <button v-on:click="addQty()">Thêm</button>
   </div>
 </template>
 <script>
@@ -27,15 +27,17 @@ export default {
     /***********************************************************************************************************
      ******************************* Pass data to child component **********************************************
         **********************************************************************************************************/
-    // prop: [variable1, variable2],
+    props: ["currentEmployee"],
     // components: {component1, component2},
     data() {
         /***********************************************************************************************************
          ******************************* Initialize global variables ***********************************************
             **********************************************************************************************************/
         return {
-          
-            employeeNumberCurrent: null,
+          qty: 1,
+          type: "Phone",
+          listType: ["phone", "TV", "Bike", "Laptop", "PC"]
+            
         }
     },
     created() {
@@ -73,10 +75,6 @@ export default {
         defaultFunction() {
             this.msg = "Replace message here!";
         },
-        handleDetailEmployee(employee){
-          this.employeeNumberCurrent = employee;
-          console.log("employeeee:", this.employeeNumberCurrent);
-        },
         
 
         /**
@@ -99,38 +97,9 @@ export default {
     },
 }
 </script>
-
 <style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-#main{
-  width: 700px;
-  height: 700px;
-  border: 1px solid black;
-  margin: 0 auto;
+#detail {
+    width: 300px;
+    height: 300px;
 }
 </style>

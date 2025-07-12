@@ -1,17 +1,31 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-import DemoComponent from './components/DemoComponent.vue'
-import ChildComponent from './components/ChildComponent.vue'
-import FormComponent from './components/FormComponent.vue'
-import DetailComponent from './components/DetailComponent.vue'
-</script>
-
 <template>
-  <div id="main" style="display: flex;">
-    <FormComponent @detail="handleDetailEmployee"/>
-    <DetailComponent v-if="employeeNumberCurrent" :currentEmployee="employeeNumberCurrent"/>
-  </div>
+
+    <div id="form-add-new">
+        <input type="text" v-model="employeeNumber" placeholder="Mã nhân viên">
+        <input type="text" v-model="fullName" placeholder="Họ và tên">
+        <button v-on:click="add()">Thêm</button>
+
+         <div id="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã nhân viên</th>
+                    <th>Họ tên</th>
+                    <th>Chi tiết</th>
+                </tr>
+            </thead>
+
+            <tbody v-if="this.listEmployeee.length > 0">
+                <tr v-for="employee in listEmployeee">
+                    <td>{{ employee.employee_number }}</td>
+                    <td>{{ employee.full_name }}</td>
+                    <td><button v-on:click="detail(employee.employee_number)">Chi tiết</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+   
 </template>
 <script>
 /**
@@ -34,32 +48,33 @@ export default {
          ******************************* Initialize global variables ***********************************************
             **********************************************************************************************************/
         return {
-          
-            employeeNumberCurrent: null,
+            employeeNumber: "",
+            fullName: "",
+            listEmployeee: []
         }
     },
     created() {
         /***********************************************************************************************************
          *********************** Initialize data when this component is used. **************************************
             **********************************************************************************************************/
-      
-        
+
+
     },
     mounted() {
         /***********************************************************************************************************
          ******************** Once created, the interface is displayed and calls mounted. **************************
             **********************************************************************************************************/
-        
+
     },
     watch: {
         /***********************************************************************************************************
          ********************************* Methods change value for a variable *************************************
             **********************************************************************************************************/
-       
-      
+
+
     },
     computed: {
-        
+
     },
     methods: {
         /***********************************************************************************************************
@@ -73,11 +88,40 @@ export default {
         defaultFunction() {
             this.msg = "Replace message here!";
         },
-        handleDetailEmployee(employee){
-          this.employeeNumberCurrent = employee;
-          console.log("employeeee:", this.employeeNumberCurrent);
+        add() {
+            // gán dữ liệu vào list
+            let count = 0;
+            for (let i = 0; i < this.listEmployeee.length; i++) {
+                if (this.employeeNumber == this.listEmployeee[i].employee_number) {
+                    alert("Mã nhân viên không được trùng");
+                    count++;
+                    break;
+                }
+            }
+            if (count == 0) {
+                this.listEmployeee.push({
+                    "employee_number": this.employeeNumber,
+                    "full_name": this.fullName
+                })
+            }
+
+
+            this.employeeNumber = "";
+            this.fullName = "";
+
+
         },
-        
+        detail(employeeNumber){
+            // truyen du lieu len component cha
+            let currentEmployee = null;
+            for(let i = 0; i < this.listEmployeee.length; i++){
+                if(employeeNumber == this.listEmployeee[i].employee_number){ 
+                    currentEmployee = this.listEmployeee[i];
+                }
+            }
+            this.$emit("detail", currentEmployee);
+        },
+
 
         /**
          * Call API sample
@@ -99,38 +143,11 @@ export default {
     },
 }
 </script>
-
 <style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-#main{
-  width: 700px;
-  height: 700px;
-  border: 1px solid black;
-  margin: 0 auto;
+#form-add-new {
+    width: 400px;
+    height: 300px;
+    border: 1px solid black;
+    overflow: auto;
 }
 </style>
