@@ -1,17 +1,26 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-import DemoComponent from './components/DemoComponent.vue'
-import ChildComponent from './components/ChildComponent.vue'
-import FormComponent from './components/FormComponent.vue'
-import DetailComponent from './components/DetailComponent.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+// import TheWelcome from './components/TheWelcome.vue'
+// import DemoComponent from './components/DemoComponent.vue'
+// import ChildComponent from './components/ChildComponent.vue'
+// import FormComponent from './components/FormComponent.vue'
+// import DetailComponent from './components/DetailComponent.vue'
+// import LoginComponent from './components/LoginComponent.vue'
 </script>
 
 <template>
-  <div id="main" style="display: flex;">
+  <!-- <div id="main" style="display: flex;">
     <FormComponent @detail="handleDetailEmployee"/>
     <DetailComponent v-if="employeeNumberCurrent" :currentEmployee="employeeNumberCurrent"/>
-  </div>
+    
+  </div> -->
+  <!-- <LoginComponent /> -->
+  <nav>
+   <!-- <RouterLink to="/">Go to home</RouterLink>
+    <RouterLink to="/about">Go to About</RouterLink> -->
+
+  </nav>
+  <RouterView />
 </template>
 <script>
 /**
