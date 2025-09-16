@@ -1,12 +1,12 @@
 <template>
-        <header
+    <header
         class="z-50 fixed h-16 top-0 left-0 right-0 flex items-center p-4 bg-[#121212] scrollbar-thumb-[#3e3e3e] scrollbar-track-transparent">
         <div class="container relative flex items-center justify-between mx-auto">
             <div class="text-3xl font-bold text-white">Uni Stream</div>
             <div>
                 <!-- Start đã loggin -->
                 <div class="flex items-center gap-5">
-                    <h1 class="text-xl text-white">Xin chào {{ this.userInfo.name }}!!!</h1>
+                    <h1 class="text-xl text-white">Xin chào {{ this.userInfo.name }} !!!</h1>
                     <div>
                         <input type="checkbox" id="notification" class="hidden peer/noti">
                         <label for="notification" class="text-2xl text-white cursor-pointer hover:opacity-75">
@@ -22,127 +22,12 @@
                             </div>
                             <ul
                                 class="py-2 pr-2 mr-2 max-h-[500px] overflow-y-scroll flex flex-col gap-2 rounded-xl scrollbar">
-                                <li
-                                    class="flex gap-4 hover:bg-[#3e3e3e] duration-200 transition-all cursor-pointer rounded-xl py-4 px-3">
-                                    <img class="w-12 rounded-full" :src="userInfo.avatar"
-                                    :onerror="'../assets/W-02/avatar.jpg'"
-                                    :alt="userInfo.name"
-                                    :title="userInfo.name">
-                                    <div>
-                                        <p class="font-medium">Sang Phamj đã theo dõi bạn</p>
-                                        <p class="text-sm text-gray-300">1 giờ trước</p>
-                                    </div>
-                                </li>
-                                <li
+                                <li v-for="item in noti"
                                     class="flex gap-4 hover:bg-[#3e3e3e] duration-200 transition-all cursor-pointer rounded-xl py-4 px-3">
                                     <img class="w-12 rounded-full" src="../assets/W-02/avatar.jpg" alt="avatar">
                                     <div>
-                                        <p class="font-medium">Hiếu Phạm đã theo dõi bạn</p>
-                                        <p class="text-sm text-gray-300">1 giờ trước</p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex gap-4 hover:bg-[#3e3e3e] duration-200 transition-all cursor-pointer rounded-xl py-4 px-3">
-                                    <img class="w-12 rounded-full" src="../assets/W-02/avatar.jpg" alt="avatar">
-                                    <div>
-                                        <p class="font-medium">Hiếu Phạm đã theo dõi bạn</p>
-                                        <p class="text-sm text-gray-300">1 giờ trước</p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex gap-4 hover:bg-[#3e3e3e] duration-200 transition-all cursor-pointer rounded-xl py-4 px-3">
-                                    <img class="w-12 rounded-full" src="../assets/W-02/avatar.jpg" alt="avatar">
-                                    <div>
-                                        <p class="font-medium">Hiếu Phạm đã theo dõi bạn</p>
-                                        <p class="text-sm text-gray-300">1 giờ trước</p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex gap-4 hover:bg-[#3e3e3e] duration-200 transition-all cursor-pointer rounded-xl py-4 px-3">
-                                    <img class="w-12 rounded-full" src="../assets/W-02/avatar.jpg" alt="avatar">
-                                    <div>
-                                        <p class="font-medium">Hiếu Phạm đã theo dõi bạn</p>
-                                        <p class="text-sm text-gray-300">1 giờ trước</p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex gap-4 hover:bg-[#3e3e3e] duration-200 transition-all cursor-pointer rounded-xl py-4 px-3">
-                                    <img class="w-12 rounded-full" src="../assets/W-02/avatar.jpg" alt="avatar">
-                                    <div>
-                                        <p class="font-medium">Hiếu Phạm đã theo dõi bạn</p>
-                                        <p class="text-sm text-gray-300">1 giờ trước</p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex gap-4 hover:bg-[#3e3e3e] duration-200 transition-all cursor-pointer rounded-xl py-4 px-3">
-                                    <img class="w-12 rounded-full" src="../assets/W-02/avatar.jpg" alt="avatar">
-                                    <div>
-                                        <p class="font-medium">Hiếu Phạm đã theo dõi bạn</p>
-                                        <p class="text-sm text-gray-300">1 giờ trước</p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex gap-4 hover:bg-[#3e3e3e] duration-200 transition-all cursor-pointer rounded-xl py-4 px-3">
-                                    <img class="w-12 rounded-full" src="../assets/W-02/avatar.jpg" alt="avatar">
-                                    <div>
-                                        <p class="font-medium">Hiếu Phạm đã theo dõi bạn</p>
-                                        <p class="text-sm text-gray-300">1 giờ trước</p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex gap-4 hover:bg-[#3e3e3e] duration-200 transition-all cursor-pointer rounded-xl py-4 px-3">
-                                    <img class="w-12 rounded-full" src="../assets/W-02/avatar.jpg" alt="avatar">
-                                    <div>
-                                        <p class="font-medium">Hiếu Phạm đã theo dõi bạn</p>
-                                        <p class="text-sm text-gray-300">1 giờ trước</p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex gap-4 hover:bg-[#3e3e3e] duration-200 transition-all cursor-pointer rounded-xl py-4 px-3">
-                                    <img class="w-12 rounded-full" src="../assets/W-02/avatar.jpg" alt="avatar">
-                                    <div>
-                                        <p class="font-medium">Hiếu Phạm đã theo dõi bạn</p>
-                                        <p class="text-sm text-gray-300">1 giờ trước</p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex gap-4 hover:bg-[#3e3e3e] duration-200 transition-all cursor-pointer rounded-xl py-4 px-3">
-                                    <img class="w-12 rounded-full" src="../assets/W-02/avatar.jpg" alt="avatar">
-                                    <div>
-                                        <p class="font-medium">Hiếu Phạm đã theo dõi bạn</p>
-                                        <p class="text-sm text-gray-300">1 giờ trước</p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex gap-4 hover:bg-[#3e3e3e] duration-200 transition-all cursor-pointer rounded-xl py-4 px-3">
-                                    <img class="w-12 rounded-full" src="../assets/W-02/avatar.jpg" alt="avatar">
-                                    <div>
-                                        <p class="font-medium">Hiếu Phạm đã theo dõi bạn</p>
-                                        <p class="text-sm text-gray-300">1 giờ trước</p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex gap-4 hover:bg-[#3e3e3e] duration-200 transition-all cursor-pointer rounded-xl py-4 px-3">
-                                    <img class="w-12 rounded-full" src="../assets/W-02/avatar.jpg" alt="avatar">
-                                    <div>
-                                        <p class="font-medium">Hiếu Phạm đã theo dõi bạn</p>
-                                        <p class="text-sm text-gray-300">1 giờ trước</p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex gap-4 hover:bg-[#3e3e3e] duration-200 transition-all cursor-pointer rounded-xl py-4 px-3">
-                                    <img class="w-12 rounded-full" src="../assets/W-02/avatar.jpg" alt="avatar">
-                                    <div>
-                                        <p class="font-medium">Hiếu Phạm đã theo dõi bạn</p>
-                                        <p class="text-sm text-gray-300">1 giờ trước</p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex gap-4 hover:bg-[#3e3e3e] duration-200 transition-all cursor-pointer rounded-xl py-4 px-3">
-                                    <img class="w-12 rounded-full" src="../assets/W-02/avatar.jpg" alt="avatar">
-                                    <div>
-                                        <p class="font-medium">Hiếu Phạm đã theo dõi bạn</p>
-                                        <p class="text-sm text-gray-300">1 giờ trước</p>
+                                        <p class="font-medium">{{ item.title }}</p>
+                                        <p class="text-sm text-gray-300">{{ item.time_ago }}</p>
                                     </div>
                                 </li>
                             </ul>
@@ -158,8 +43,8 @@
                     </div>
                     <div>
                         <label for="menu">
-                            <img class="w-10 rounded-full cursor-pointer hover:opacity-75"
-                                src="../assets/W-02/avatar.jpg" alt="avatar">
+                            <img class="w-10 rounded-full cursor-pointer hover:opacity-75" :src="userInfo.avatar"
+                                :onerror="'../assets/W-02/avatar.jpg'" :alt="userInfo.name" :title="userInfo.name">
                         </label>
                         <input type="checkbox" id="menu" class="hidden peer/menu">
                         <div
@@ -195,7 +80,8 @@
                                                     <label for="live_thumbnail"
                                                         class="text-white bg-[#222222] py-2 px-5 font-semibold rounded-xl hover:opacity-75 w-32 text-center cursor-pointer transition-all duration-200 text-lg">Chọn
                                                         ảnh</label>
-                                                    <input type="file" id="live_thumbnail" class="hidden">
+                                                    <input type="file" v-on:change="attachThumbnail($event)"
+                                                        id="live_thumbnail" class="hidden">
                                                 </div>
                                                 <div class="flex flex-col gap-4">
                                                     <div class="flex flex-col gap-2">
@@ -204,7 +90,7 @@
                                                             đề</label>
                                                         <input
                                                             class="px-5 py-4 bg-[#222222] rounded-xl transition-all duration-200 outline outline-2 outline-transparent focus:outline-white"
-                                                            type="text" id="modal_live_title"
+                                                            type="text" id="modal_live_title" v-model="title"
                                                             placeholder="Điền tiêu đề...">
                                                     </div>
                                                     <div class="flex flex-col gap-2">
@@ -214,19 +100,22 @@
                                                             gian</label>
                                                         <input
                                                             class="px-5 py-4 bg-[#222222] rounded-xl transition-all duration-200 outline outline-2 outline-transparent focus:outline-transparent"
-                                                            type="datetime-local" id="modal_live_date">
+                                                            type="datetime-local" v-model="start_time"
+                                                            id="modal_live_date">
                                                     </div>
                                                     <div class="flex justify-end w-full gap-4">
                                                         <label for="modal_live"
                                                             class="px-5 py-2 text-lg font-semibold text-center text-white transition-all duration-200 bg-red-500 cursor-pointer rounded-xl hover:opacity-75 min-w-24">Hủy</label>
-                                                        <label for="modal_live"
+                                                        <label for="modal_live" v-on:click="registerLive()"
                                                             class="text-white bg-[#222222] py-2 px-5 font-semibold rounded-xl hover:opacity-75 min-w-24 text-center cursor-pointer transition-all duration-200 text-lg">Xác
                                                             nhận</label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <h1 class="w-full px-5 py-4 text-xl font-medium text-center text-red-500">
-                                                Vui lòng cập nhật lại token!</h1>
+                                                click vào <span class="txt-auth"
+                                                    v-on:click="callAuthGoogleLive()">đây</span> để cập nhật lại token
+                                            </h1>
                                         </div>
                                     </div>
                                     <!-- End modal đăng kí phiên live -->
@@ -278,13 +167,56 @@
                                     <!-- End modal cập nhật thông tin -->
                                 </li>
                                 <li>
-                                    <a href="/logout">Đăng xuất</a>
+                                    <input type="checkbox" id="modal_info" class="hidden peer/modal_info">
+                                    <label class="cursor-pointer hover:opacity-75" for="modal_info">Đăng xuất</label>
+                                    <!-- Start modal cập nhật thông tin -->
+                                    <div
+                                        class="fixed inset-0 z-20 items-center justify-center hidden mx-auto text-white bg-black/30 backdrop-blur-sm peer-checked/modal_info:flex">
+                                        <div
+                                            class="bg-[#121212] w-[600px]  rounded-xl outline outline-2 outline-[#383838] text-white overflow-hidden">
+                                            <div class="flex justify-end bg-black">
+                                                <label for="modal_info"
+                                                    class="p-4 text-xl text-white cursor-pointer hover:opacity-75">
+                                                    <i class="fa-solid fa-xmark"></i>
+                                                </label>
+                                            </div>
+                                            <div class="flex flex-col gap-6 px-6 py-5">
+                                                <h1 class="w-full text-2xl font-bold text-center text-white">Cập nhật
+                                                    thông tin</h1>
+                                                <div class="flex flex-col gap-3">
+                                                    <label for="modal_info_google_client_id"
+                                                        class="text-lg font-medium text-white cursor-pointer">Nhập
+                                                        GOOGLE_CLIENT_ID</label>
+                                                    <textarea id="modal_info_google_client_id"
+                                                        class="px-5 py-4 bg-[#222222] rounded-xl transition-all duration-200 outline outline-2 outline-transparent focus:outline-white min-h-24 max-h-24 scrollbar-none resize-none"
+                                                        placeholder="Điền thông tin..."></textarea>
+                                                </div>
+                                                <div class="flex flex-col gap-3">
+                                                    <label for="modal_info_google_client_secret"
+                                                        class="text-lg font-medium text-white cursor-pointer">Nhập
+                                                        GOOGLE_CLIENT_ID</label>
+                                                    <textarea id="modal_info_google_client_secret"
+                                                        class="px-5 py-4 bg-[#222222] rounded-xl transition-all duration-200 outline outline-2 outline-transparent focus:outline-white min-h-24 max-h-24 scrollbar-none resize-none"
+                                                        placeholder="Điền thông tin..."></textarea>
+                                                </div>
+                                                <div class="flex justify-end w-full gap-4">
+                                                    <label for="modal_info"
+                                                        class="px-5 py-2 text-lg font-semibold text-center text-white transition-all duration-200 bg-red-500 cursor-pointer rounded-xl hover:opacity-75 min-w-24">Hủy</label>
+                                                    <label for="modal_info"
+                                                        class="text-white bg-[#222222] py-2 px-5 font-semibold rounded-xl hover:opacity-75 min-w-24 text-center cursor-pointer transition-all duration-200 text-lg">Xác
+                                                        nhận</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End modal cập nhật thông tin -->
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <!-- End đã loggin -->
+
 
                 <!-- Start chưa loggin -->
                 <!-- <button
@@ -296,15 +228,16 @@
     </header>
 </template>
 
-<!-- Define JS code -->
+
 <script>
 /**
  * Vue.js code in here!
  */
 // import Vue from 'vue'
 import axios from 'axios'
-// import component1 from 'component1'
-// import component2 from 'component2'
+// import HeaderComponent from './HeaderComponent.vue';
+
+
 
 
 export default {
@@ -312,48 +245,52 @@ export default {
      ******************************* Pass data to child component **********************************************
         **********************************************************************************************************/
     // prop: [variable1, variable2],
-    // components: {component1, component2},
+    // components: { HeaderComponent },
+
     data() {
         /***********************************************************************************************************
          ******************************* Initialize global variables ***********************************************
             **********************************************************************************************************/
         return {
             userInfo: '',
-            
+            access_token: sessionStorage.getItem('access_token'),
+            offset: 0,
+            limit: 15,
+            noti: [],
+            thumbnail: '',
+            title: '',
+            start_time: '',
         }
+
     },
     created() {
         /***********************************************************************************************************
          *********************** Initialize data when this component is used. **************************************
             **********************************************************************************************************/
-     
-       
+        this.notifications();
+
     },
     mounted() {
         /***********************************************************************************************************
          ******************** Once created, the interface is displayed and calls mounted. **************************
             **********************************************************************************************************/
-        // Code JS chay o trong nay hoac dung cac thu vien khac nhu jQuery o day
         this.userInfo = JSON.parse(sessionStorage.getItem('user_info'));
     },
     watch: {
         /***********************************************************************************************************
          ********************************* Methods change value for a variable *************************************
             **********************************************************************************************************/
-        msg() {
-            console.log("When the value of the msg variable changes, this method will be executed.");
-        },
-       
+
     },
     computed: {
-        appendMsg() {
-            return msg + "Process the value and assign the value to the corresponding variable the var has changed.";
-        }
+
     },
     methods: {
         /***********************************************************************************************************
          ******************************* Default functions that handle local data **********************************
             **********************************************************************************************************/
+
+
 
 
         /**
@@ -364,10 +301,48 @@ export default {
         },
 
 
-        
+        /**
+         * Example default function using param
+         *
+         * @param int pageNum number of page
+         * @return boolean
+         */
+        defaultFunctionUsingParam(pageNum) {
+            console.log(pageNum);
+            return false;
+        },
+        attachThumbnail(event) {
+            this.thumbnail = event.target.files[0]; // Lấy file người dùng chọn
+        },
+        // Function register live
+        async registerLive() {
+           // console.log("registerlive");
+            if (!this.thumbnail) {
+                return alert("Chọn file trước đã!");
+            }
+            const formData = new FormData();
+            formData.append("thumbnail", this.thumbnail);
+            formData.append("title", this.title);
+            formData.append("start_time", this.start_time);
+            try {
+                  
+                const res = await axios.post("http://localhost/unistreamapi/public/api/google-register-live", formData, {
+                    headers: { "Content-Type": "multipart/form-data",
+                        'Authorization': 'Bearer ' + this.access_token
+                     },
+                      
+                });
+                console.log("Đăng ký phiên live thành công");
+            } catch (err) {
+                console.error("Lỗi upload:", err);
+            }
+        },
+
         /***********************************************************************************************************
          ******* Async and await functions for manipulating server-side data through internal API protocols ********
             **********************************************************************************************************/
+
+
 
 
         /**
@@ -387,6 +362,58 @@ export default {
                 console.log(err);
             }
         },
+
+
+        async notifications() {
+            try {
+                const callAPI = await axios.get('http://localhost/unistreamapi/public/api/notifications', {
+                    /************ Attach param for request here ***************/
+                    headers: {
+                        'Authorization': 'Bearer ' + this.access_token
+                    },
+                    params: {
+                        offset: this.offset,
+                        limit: this.limit
+                    }
+                });
+                for (let i = 0; i < callAPI.data.data.length; i++) {
+                    this.noti.push(callAPI.data.data[i]);
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        },
+        async callAuthGoogleLive() {
+            try {
+                const callAPI = await axios.get('http://localhost/unistreamapi/public/api/google-live-auth-url', {
+                    /************ Attach param for request here ***************/
+                    headers: {
+                        'Authorization': 'Bearer ' + this.access_token
+                    },
+
+                });
+                if (callAPI.data.code == 200) {
+                    window.location.href = callAPI.data.data;
+                } else {
+                    alert("System error!");
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        },
+
     },
 }
 </script>
+
+<style>
+.txt-auth {
+    color: blue;
+    font-weight: bolder;
+}
+
+.txt-auth:hover {
+    color: aquamarine;
+    cursor: pointer;
+}
+</style>

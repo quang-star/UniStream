@@ -128,7 +128,7 @@ export default {
                     sessionStorage.setItem("access_token", response.data.data.accessToken);
                     
                     sessionStorage.setItem("user_info", JSON.stringify(response.data.data.user_info));
-                   // window.location.replace('/index');
+                   window.location.replace('/index');
                     return false;
                 }
                 alert("401 UnAuthentication");

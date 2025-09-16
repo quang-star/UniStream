@@ -31,6 +31,11 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: HomeComponent
+  },
+  {
+    path: '/google-youtube-live-callback',
+    name: 'Home',
+    component: HomeComponent
   }
 
 ];
